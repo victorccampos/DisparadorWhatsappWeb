@@ -4,7 +4,7 @@ import webbrowser
 from urllib.parse import quote
 import time
 import os
-
+from string import Template
 import pyautogui
 import openpyxl
 
@@ -31,13 +31,12 @@ def selecionar_arquivo(tipo_de_arquivo: str) -> str:
         print("Nenhum arquivo selecionado.")
     return arquivo
 
-def get_mensagem_de_texto(texto_path: str) -> str:
-    """
-    Lê o conteúdo de um arquivo de texto.
-    """
-    with open(texto_path, 'r', encoding='utf-8') as arquivo_de_texto:
-        mensagem_de_texto = arquivo_de_texto.read()
-    return mensagem_de_texto
+def get_mensagem_de_texto(texto_path: str) -> Template:
+    """Lê o conteúdo de arquivo e o retorna como Template"""
+    with open(texto_path, 'r', encoding='utf-8') as arquivo_txt:
+        mensagem = arquivo_txt.read().strip()
+    return Template(mensagem)
+    
 
 # Main TODO: Ceritificar que user tá logado no wpp web
 if __name__ == '__main__':
