@@ -1,1 +1,1 @@
-Essa é uma mensagem automática :)
+Olá, estou testando uma mensagem para pessoa chamada ${nome}!
